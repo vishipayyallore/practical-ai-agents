@@ -1,0 +1,23 @@
+---
+description: Repository structure for Customer Churn Prediction ML
+globs: *
+---
+# Repository Structure
+
+**Project**: Customer Churn Prediction ML (M.Sc. DSAI — Advanced Apex Project)
+
+> **Single Source of Truth**: For the complete and detailed repository structure, refer to [docs/01-repository-structure.md](../../docs/01-repository-structure.md).
+
+## Quick Summary
+
+- **`data/raw/`**: Immutable source datasets. Never modify.
+- **`data/processed/`**: Cleaned and transformed datasets for modelling.
+- **`notebooks/`**: Numbered workflow notebooks (`01_` through `05_`).
+- **`src/data_preprocessing/`**: Reusable preprocessing logic.
+- **`src/feature_engineering/`**: Feature creation and transformation.
+- **`src/modeling/`**: Model training and inference.
+- **`src/evaluation/`**: Metrics, validation, and model comparison.
+- **`reports/figures/`**: Exported charts and report-ready visuals.
+- **`docs/`**: Project documentation.
+
+When writing or updating public-facing structure (e.g., `README.md` or `docs/01-repository-structure.md`), do not list internal-only paths or mention data file contents.

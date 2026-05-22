@@ -1,0 +1,40 @@
+---
+description: Primary directives for Customer Churn Prediction ML
+globs: *
+---
+# Primary Directives
+
+## Project Focus
+
+This is an **end-to-end Machine Learning project** for customer churn prediction that:
+
+- Uses the IBM Telco Customer Churn Dataset (Kaggle)
+- Follows a structured ML workflow: EDA → Preprocessing → Feature Engineering → Modelling → Evaluation
+- Prioritizes business-oriented interpretation alongside technical metrics
+- Uses scikit-learn, pandas, numpy, matplotlib, seaborn, and Jupyter Notebooks
+
+### Key Principles
+
+- **Recall first**: Minimizing false negatives (missed churners) is the primary evaluation priority.
+- **Reproducibility**: Fixed seeds, clean kernel runs, and documented outputs.
+- **Business context**: Every model metric should be explained in terms of customer retention impact.
+- **Modular code**: Reusable logic belongs in `src/`; exploration stays in `notebooks/`.
+
+## Current State
+
+- Active project: M.Sc. DSAI Advanced Apex Project (Trimester 2)
+- Tech Stack: Python 3.12+, Jupyter, NumPy, Pandas, Matplotlib, Seaborn, scikit-learn
+- NOT a web application
+- NOT a production system
+
+## Documentation Accuracy
+
+- Notebooks must accurately reflect the analysis and findings.
+- `docs/01-repository-structure.md` is the single source of truth for the repo layout.
+- Update `README.md` when project status or scope changes.
+
+## Code Maintenance
+
+- Notebooks must be reproducible (`Restart Kernel & Run All` must pass).
+- Separate reusable logic into `src/` modules where appropriate.
+- Use strict typing in Python scripts (`src/`) but relax it in notebooks for exploration.

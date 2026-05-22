@@ -1,0 +1,42 @@
+---
+description: Naming conventions for notebooks, scripts, data files, and reports
+globs: *
+---
+# File Naming Conventions
+
+## Jupyter Notebooks (`notebooks/`)
+
+Notebooks are numbered to reflect the ML workflow sequence:
+
+- Format: `XX_descriptive_name.ipynb` (snake_case after the prefix)
+- Example sequence:
+
+```text
+01_data_understanding.ipynb
+02_data_preprocessing.ipynb
+03_feature_engineering.ipynb
+04_model_building.ipynb
+05_model_evaluation.ipynb
+```
+
+Additional exploratory notebooks can use descriptive names without strict sequence numbers.
+
+## Python Scripts (`src/`)
+
+- Use snake_case (standard Python convention).
+- Name by responsibility: `churn_encoder.py`, `churn_scaler.py`, `logistic_model.py`.
+- No numeric prefix required in `src/`.
+
+## Data Files (`data/`)
+
+- Raw data: preserve the original filename (e.g., `WA_Fn-UseC_-Telco-Customer-Churn.csv`).
+- Processed data: descriptive snake_case names (e.g., `telco_cleaned.csv`, `telco_features.csv`).
+
+## Report Outputs (`reports/figures/`)
+
+- Descriptive kebab-case names: `churn-distribution.png`, `roc-curve-comparison.png`, `feature-importance.png`.
+
+## Documentation (`docs/`)
+
+- Kebab-case filenames: `01-repository-structure.md`, `agent-skills.md`.
+- No uppercase in filenames.

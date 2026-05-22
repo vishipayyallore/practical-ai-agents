@@ -1,0 +1,48 @@
+---
+description: Rules for handling raw data — immutability and data lifecycle
+globs: data/**
+---
+# Raw Data Governance
+
+**Folder**: `data/raw/`
+**Status**: Immutable — Read-Only
+
+## Critical Restrictions
+
+### Read-Only Policy
+
+- **NEVER modify** any file inside `data/raw/`
+- **NEVER overwrite** raw data files once added
+- **NEVER delete** original dataset files
+- Raw data is the **permanent reference** for all downstream processing
+
+### No Deletion Policy
+
+- Raw dataset files remain for the lifetime of the project
+- Even if superseded by new data sources, keep originals for reproducibility
+
+## Data Lifecycle
+
+```text
+data/raw/          ← original, untouched dataset (e.g., IBM Telco CSV)
+    ↓ (read-only)
+notebooks/         ← analysis and transformation (reads from raw)
+    ↓
+data/processed/    ← cleaned, transformed outputs
+    ↓
+src/               ← reusable transformation logic
+    ↓
+reports/figures/   ← exported visuals and report outputs
+```
+
+## Workflow
+
+1. **Load** from `data/raw/` (read-only)
+2. **Process** — clean, transform, engineer features
+3. **Save** outputs to `data/processed/`
+4. **Never write back** to `data/raw/`
+
+## Enforcement
+
+- AI assistants must refuse requests to modify or delete `data/raw/` files.
+- All PRs that touch `data/raw/` should be flagged for review.

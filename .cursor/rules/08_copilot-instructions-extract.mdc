@@ -1,0 +1,73 @@
+---
+description: Key guidelines extracted from copilot-instructions.md for AI assistants
+globs: *
+---
+# Copilot Instructions Extract
+
+**Source**: `.github/copilot-instructions.md`
+**Purpose**: Key guidelines for AI assistants working on this repository
+
+---
+
+## Repository Context
+
+**Customer Churn Prediction ML** is an end-to-end ML project to predict customer churn using the IBM Telco dataset, built as Swamy's Advanced Apex Project for M.Sc. DSAI (Trimester 2).
+
+### Project Scope
+
+- **Dataset**: IBM Telco Customer Churn (Kaggle)
+- **Models**: Logistic Regression (baseline), Decision Tree, Random Forest
+- **Priority metric**: Recall (minimize missed churners)
+- **Stack**: Python 3.12+, pandas, numpy, sklearn, matplotlib, seaborn, Jupyter
+
+### Repository Layout
+
+```text
+data/raw/          → immutable source data (read-only)
+data/processed/    → cleaned and transformed data
+notebooks/         → numbered workflow notebooks (01–05)
+src/               → reusable Python modules
+reports/figures/   → exported charts
+docs/              → documentation
+```
+
+---
+
+## Development Guidelines
+
+### Data Governance
+
+- **`data/raw/` is read-only**: Never modify original dataset files.
+- Processed outputs go to `data/processed/`.
+
+### Notebook Quality
+
+- **Reproducibility**: `random_state=42` everywhere stochastic.
+- **Clean runs**: `Kernel → Restart & Run All` must pass.
+- **Concept first**: Markdown cell before code explaining the step.
+- **Logical flow**: Import → Load → Process → Visualize/Evaluate → Save.
+
+### Code Style
+
+- Follow PEP 8; meaningful variable names; type hints in `src/`; no hardcoded paths.
+- Comment the *why* of preprocessing and modelling decisions.
+
+### Evaluation
+
+- Report: Accuracy, Precision, Recall, F1, ROC-AUC, Confusion Matrix.
+- Interpret results in business terms (customer retention, revenue impact).
+
+---
+
+## Quality Checklist
+
+### Before Submitting Code/Notebooks
+
+- [ ] `Kernel → Restart & Run All` passes without errors.
+- [ ] All stochastic operations use `random_state=42`.
+- [ ] Visualizations have titles, labels, and legends.
+- [ ] No hardcoded paths (`pathlib` or relative paths).
+- [ ] Code comments explain *why* (not just *what*).
+- [ ] `data/raw/` is unchanged.
+- [ ] Processed outputs in `data/processed/`.
+- [ ] Report figures saved to `reports/figures/`.
