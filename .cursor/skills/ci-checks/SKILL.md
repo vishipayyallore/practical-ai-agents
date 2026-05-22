@@ -1,9 +1,11 @@
 ---
 name: ci-checks
-description: Run CI-aligned checks for Customer Churn Prediction ML (Python lint, recursive notebook JSON parse, markdown lint, optional Lychee). Use when asked to run CI, lint, or verify code quality.
+description: >-
+  Run CI-aligned checks for Practical AI Agents (Python lint, recursive notebook JSON parse,
+  markdown lint). Use when asked to run CI, lint, or verify code quality.
 ---
 
-# CI Checks — Local Runner (Customer Churn Prediction ML)
+# CI Checks — Local Runner (Practical AI Agents)
 
 Commands mirror `.github/workflows/ci-python.yml` and `.github/workflows/ci-documentation.yml`.
 
@@ -19,7 +21,8 @@ Commands mirror `.github/workflows/ci-python.yml` and `.github/workflows/ci-docu
 
 ### Windows / `uv run` troubleshooting
 
-If `uv run` fails with **"Failed to canonicalize script path"** (some Windows setups), use the project venv after `uv sync`:
+If `uv run` fails with **"Failed to canonicalize script path"** (some Windows setups), use the
+project venv after `uv sync`:
 
 ```powershell
 .\.venv\Scripts\python.exe -m isort --check-only --diff src/
@@ -84,7 +87,7 @@ Run 1–4 from repo root with `uv`; run 5 with Node.
 ## Summary format
 
 | # | Check | Status | Notes |
-|---|--------|--------|-------|
+|---|---|---|---|
 | 1 | isort | | |
 | 2 | black | | |
 | 3 | flake8 | | |

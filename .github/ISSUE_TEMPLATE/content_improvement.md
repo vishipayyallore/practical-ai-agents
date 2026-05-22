@@ -1,6 +1,6 @@
 ---
-name: Analysis Improvement
-about: Suggest improvements to existing analysis, notebooks, or documentation
+name: Implementation Improvement
+about: Suggest improvements to existing implementations, notebooks, or documentation
 title: '[IMPROVEMENT] '
 labels: documentation
 assignees: ''
@@ -12,12 +12,16 @@ A clear description of the improvement you'd like to see.
 
 ## Area
 
-- [ ] EDA / Data Understanding (`notebooks/01_data_understanding.ipynb`)
-- [ ] Preprocessing (`notebooks/02_data_preprocessing.ipynb`)
-- [ ] Feature Engineering (`notebooks/03_feature_engineering.ipynb`)
-- [ ] Model Building (`notebooks/04_model_building.ipynb`)
-- [ ] Model Evaluation (`notebooks/05_model_evaluation.ipynb`)
-- [ ] Source Module (`src/`)
+- [ ] Fundamentals (`src/fundamentals/`)
+- [ ] Agents (`src/agents/`)
+- [ ] Frameworks (`src/frameworks/`)
+- [ ] Protocols (`src/protocols/`)
+- [ ] Orchestration (`src/orchestration/`)
+- [ ] Observability (`src/observability/`)
+- [ ] Security (`src/security/`)
+- [ ] Architecture (`src/architecture/`)
+- [ ] Projects (`src/projects/`)
+- [ ] Notebooks (`notebooks/`)
 - [ ] Documentation (`docs/`, `README.md`)
 
 ## Current State
@@ -35,4 +39,4 @@ Describe what should be improved and how.
 Why is this improvement valuable?
 
 - What issue does it address?
-- How does it improve the analysis or documentation?
+- How does it improve the implementation or documentation?

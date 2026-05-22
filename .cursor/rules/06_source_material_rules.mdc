@@ -1,48 +1,43 @@
 ---
-description: Rules for handling raw data — immutability and data lifecycle
-globs: data/**
+description: Rules for reference materials — read-only policy for references/
+globs: "references/**"
 ---
-# Raw Data Governance
 
-**Folder**: `data/raw/`
-**Status**: Immutable — Read-Only
+# Reference Materials Governance
 
-## Critical Restrictions
+**Folder**: `references/`
+**Status**: Read-Only — Do Not Modify
+
+## Policy
+
+The `references/` directory contains external learning materials: books, papers, articles,
+video notes, and curated external resources. These are **reference inputs**, not project outputs.
 
 ### Read-Only Policy
 
-- **NEVER modify** any file inside `data/raw/`
-- **NEVER overwrite** raw data files once added
-- **NEVER delete** original dataset files
-- Raw data is the **permanent reference** for all downstream processing
+- **NEVER modify** any file inside `references/`
+- **NEVER delete** reference materials once added
+- Reference materials are the **permanent knowledge base** for this project
 
-### No Deletion Policy
+### Adding New References
 
-- Raw dataset files remain for the lifetime of the project
-- Even if superseded by new data sources, keep originals for reproducibility
+- Add reference files to `references/` as a distinct, intentional step
+- Use descriptive filenames: `attention-is-all-you-need.pdf`, `langchain-docs-snapshot.md`
+- Document the source and date in a companion `README.md` inside `references/`
 
 ## Data Lifecycle
 
 ```text
-data/raw/          ← original, untouched dataset (e.g., IBM Telco CSV)
+references/         ← external learning materials (read-only)
     ↓ (read-only)
-notebooks/         ← analysis and transformation (reads from raw)
+notebooks/          ← exploration and experimentation (reads from references)
     ↓
-data/processed/    ← cleaned, transformed outputs
+src/                ← reusable implementation logic
     ↓
-src/               ← reusable transformation logic
-    ↓
-reports/figures/   ← exported visuals and report outputs
+docs/learnings/     ← documented learnings and insights
 ```
-
-## Workflow
-
-1. **Load** from `data/raw/` (read-only)
-2. **Process** — clean, transform, engineer features
-3. **Save** outputs to `data/processed/`
-4. **Never write back** to `data/raw/`
 
 ## Enforcement
 
-- AI assistants must refuse requests to modify or delete `data/raw/` files.
-- All PRs that touch `data/raw/` should be flagged for review.
+- AI assistants must refuse requests to modify or delete `references/` files.
+- Treat `references/` as an append-only archive.

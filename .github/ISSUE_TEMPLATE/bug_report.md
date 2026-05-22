@@ -14,16 +14,16 @@ A clear and concise description of what the bug is.
 
 **File(s) affected**:
 
-- `path/to/notebook.ipynb` or `src/path/to/module.py`
+- `path/to/module.py` or `notebooks/notebook_name.ipynb`
 
 **Section(s) affected**:
 
-- Section name or cell number
+- Function name, class, or cell number
 
 ## Steps to Reproduce
 
-1. Open notebook '...'
-2. Run cell '...'
+1. Open file / run script '...'
+2. Call function '...' with input '...'
 3. See error
 
 ## Expected Behavior
@@ -40,7 +40,7 @@ If applicable, add screenshots to help explain.
 
 ## Additional Context
 
-- **Component**: [Notebook / Python Module / Data / Documentation / Other]
+- **Component**: [Agent / Tool / Framework / Protocol / Orchestration / Observability / Security / Documentation / Other]
 - **Severity**: [Low / Medium / High]
 
 ## Proposed Fix (Optional)

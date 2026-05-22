@@ -1,42 +1,42 @@
 ---
-description: Naming conventions for notebooks, scripts, data files, and reports
-globs: *
+description: Naming conventions for modules, notebooks, scripts, and docs
+globs: "*"
 ---
+
 # File Naming Conventions
+
+## Python Modules (`src/`)
+
+- Use snake_case (standard Python convention).
+- Name by responsibility and domain: `react_agent.py`, `mcp_client.py`, `chroma_store.py`.
+- Subfolder names use kebab-case: `single-agent/`, `multi-agent/`, `tool-calling/`.
+- Package `__init__.py` files should be minimal or empty.
 
 ## Jupyter Notebooks (`notebooks/`)
 
-Notebooks are numbered to reflect the ML workflow sequence:
-
-- Format: `XX_descriptive_name.ipynb` (snake_case after the prefix)
-- Example sequence:
+- Use descriptive kebab-case or snake_case names.
+- Prefix with a topic area when organizing by theme:
 
 ```text
-01_data_understanding.ipynb
-02_data_preprocessing.ipynb
-03_feature_engineering.ipynb
-04_model_building.ipynb
-05_model_evaluation.ipynb
+mcp_quickstart.ipynb
+langgraph_state_machine.ipynb
+rag_with_chroma.ipynb
+react_pattern_demo.ipynb
 ```
 
-Additional exploratory notebooks can use descriptive names without strict sequence numbers.
+- No strict numeric sequence required — use meaningful names.
 
-## Python Scripts (`src/`)
+## Scripts (`scripts/`)
 
-- Use snake_case (standard Python convention).
-- Name by responsibility: `churn_encoder.py`, `churn_scaler.py`, `logistic_model.py`.
-- No numeric prefix required in `src/`.
-
-## Data Files (`data/`)
-
-- Raw data: preserve the original filename (e.g., `WA_Fn-UseC_-Telco-Customer-Churn.csv`).
-- Processed data: descriptive snake_case names (e.g., `telco_cleaned.csv`, `telco_features.csv`).
-
-## Report Outputs (`reports/figures/`)
-
-- Descriptive kebab-case names: `churn-distribution.png`, `roc-curve-comparison.png`, `feature-importance.png`.
+- Use snake_case: `sync_env.py`, `run_smoke_test.sh`.
 
 ## Documentation (`docs/`)
 
-- Kebab-case filenames: `01-repository-structure.md`, `agent-skills.md`.
+- Use kebab-case filenames: `agent-patterns.md`, `01-repository-structure.md`.
+- ADRs use prefix `adr-NNN-short-title.md`: `adr-001-langgraph.md`.
 - No uppercase in filenames.
+
+## Tests (`tests/`)
+
+- Mirror the `src/` structure: `tests/agents/test_react_agent.py`.
+- Test files prefixed with `test_`: `test_mcp_client.py`.

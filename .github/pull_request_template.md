@@ -9,16 +9,16 @@ A clear and concise description of what this PR does.
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (adds functionality)
 - [ ] Documentation update
-- [ ] Analysis improvement
+- [ ] Implementation improvement
 - [ ] Refactoring (no functional change)
 - [ ] Build/CI changes
 
 ## Area
 
-- [ ] Jupyter Notebook (`notebooks/`)
 - [ ] Python Module (`src/`)
-- [ ] Data (`data/processed/`)
+- [ ] Jupyter Notebook (`notebooks/`)
 - [ ] Documentation (`README.md`, `docs/`)
+- [ ] Tests (`tests/`)
 - [ ] Configuration (`.github/`, `.cursor/`, etc.)
 
 ## Changes Made
@@ -36,13 +36,12 @@ Brief summary of what was changed and why.
 
 ### Pre-Submission
 
-- [ ] Code follows PEP 8 (for Python files)
+- [ ] Code follows PEP 8 (for Python files in `src/`)
+- [ ] Type hints and docstrings present in `src/` modules
+- [ ] No hardcoded API keys, tokens, or credentials
+- [ ] No hardcoded paths (`pathlib` or relative paths)
 - [ ] Notebooks run clean (`Kernel → Restart & Run All`)
-- [ ] Fixed random seeds used (`random_state=42`)
-- [ ] Visualizations have titles, labels, legends
-- [ ] No hardcoded paths
-- [ ] `data/raw/` is unchanged
-- [ ] Processed outputs in `data/processed/`
+- [ ] `references/` is unchanged
 - [ ] No secrets or sensitive data included
 - [ ] Markdown lints cleanly
 

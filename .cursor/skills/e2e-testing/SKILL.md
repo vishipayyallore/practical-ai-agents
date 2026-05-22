@@ -1,9 +1,11 @@
 ---
 name: e2e-testing
-description: Smoke verification for Customer Churn Prediction ML (environment, notebook JSON, optional manual notebook run). Use when smoke-testing the workspace end-to-end.
+description: >-
+  Smoke verification for Practical AI Agents (environment, notebook JSON, optional manual
+  notebook run). Use when smoke-testing the workspace end-to-end.
 ---
 
-# Smoke / E2E-style verification — Customer Churn Prediction ML
+# Smoke / E2E-style verification — Practical AI Agents
 
 No deployed application. "End-to-end" means **environment + parse + optional notebook execution**.
 
@@ -24,16 +26,16 @@ No deployed application. "End-to-end" means **environment + parse + optional not
 2. **Import smoke**
 
    ```powershell
-   uv run python -c "import numpy, pandas, sklearn, matplotlib, seaborn; print('ok')"
+   uv run python -c "import pathlib; print('Python OK')"
    ```
 
 3. **Notebook JSON** (same as CI):
 
    ```powershell
-   uv run python -c "import json,glob; paths=sorted(glob.glob('notebooks/**/*.ipynb',recursive=True)); [json.load(open(p,encoding='utf-8')) for p in paths]"
+   uv run python -c "import json,glob; paths=sorted(glob.glob('notebooks/**/*.ipynb',recursive=True)); [json.load(open(p,encoding='utf-8')) for p in paths]; print('Notebooks OK')"
    ```
 
-4. **Manual (optional)** — open `notebooks/01_data_understanding.ipynb`, run all cells, verify it completes cleanly.
+4. **Manual (optional)** — open a notebook in `notebooks/`, run all cells, verify it completes cleanly.
 
 ## Summary
 

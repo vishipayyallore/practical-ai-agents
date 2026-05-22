@@ -1,20 +1,21 @@
 ---
 description: Markdown structure and formatting standards
-globs: *.md
+globs: "*.md"
 ---
+
 # Markdown Standards
 
 ## Documentation Files
 
 - Use proper heading hierarchy (H1 → H2 → H3); do not skip levels.
-- Include code fence language specifications (` ```python `, ` ```bash `, etc.).
+- Include code fence language specifications (` ```python `, ` ```bash `, ` ```text `, etc.).
 - Use UTF-8 encoding.
 - Keep line length reasonable (~120 chars).
 
 ## Code Examples
 
 - Always specify language in code fences.
-- Include comments explaining complex logic.
+- Include comments explaining complex or non-obvious logic.
 - Show complete, runnable examples when possible.
 
 ## File References
@@ -25,9 +26,9 @@ globs: *.md
 
 ## Tables
 
-- Use for model comparison results, metric summaries, and structured data.
+- Use for framework comparisons, metric summaries, and structured data.
 - Align columns consistently.
 
 ## Blockquotes
 
-- Use (`>`) for key findings, interpretations, or important callouts.
+- Use (`>`) for key findings, architectural observations, or important callouts.

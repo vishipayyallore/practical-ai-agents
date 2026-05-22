@@ -1,44 +1,47 @@
 ---
-description: Quality assurance standards for code and notebooks
-globs: *.py, *.ipynb
+description: Quality assurance standards for code and notebooks in Practical AI Agents
+globs: "*.py, *.ipynb"
 ---
+
 # Quality Assurance
 
 ## Code Quality Checklist
 
-### Python Scripts (`src/`)
+### Python Modules (`src/`)
 
 - [ ] Follows PEP 8 style guide.
-- [ ] Type hints used for function arguments and return types.
-- [ ] Docstrings included for all public functions and classes.
+- [ ] Type hints used for all public function arguments and return types.
+- [ ] Docstrings included for all public functions, classes, and modules.
 - [ ] No hardcoded paths (use `pathlib` or relative paths).
-- [ ] Meaningful variable names (`monthly_charges_scaled` not `mcs`).
+- [ ] No hardcoded API keys or secrets (use environment variables or `.env`).
+- [ ] Meaningful variable names (`agent_config` not `ac`).
+- [ ] Comments explain the *why* of architectural decisions, not just the *what*.
 
 ### Jupyter Notebooks (`notebooks/`)
 
-- [ ] **Kernel Restart & Run All** passes without errors.
-- [ ] Logical flow: Import → Load → Process → Visualize/Evaluate → Save.
-- [ ] No hidden state (variables defined in deleted cells).
-- [ ] Markdown cells clearly explain each major section.
-- [ ] Visualizations have titles, labels, and legends.
-- [ ] Fixed seed: `random_state=42` or `np.random.seed(42)` in all stochastic steps.
-- [ ] Report figures saved to `reports/figures/`.
+- [ ] Focused on a single concept or workflow.
+- [ ] Markdown cell before each major code section explaining its purpose.
+- [ ] No duplicated logic from `src/` — import modules instead.
+- [ ] Clear and descriptive cell outputs.
+- [ ] Prefer `Kernel → Restart & Run All` clean runs.
 
-## Data Governance Checklist
+## Agent Implementation Checklist
 
-- [ ] `data/raw/` unchanged — no modifications to original dataset files.
-- [ ] Cleaned and processed outputs saved to `data/processed/`.
-- [ ] No large binary files committed to Git.
+- [ ] Tool functions have accurate, descriptive names and docstrings.
+- [ ] Agent definition, tool registration, and execution are separated.
+- [ ] Error handling covers LLM timeouts, tool failures, and unexpected outputs.
+- [ ] API keys and credentials loaded from environment variables.
+- [ ] Agent actions logged for observability.
 
-## Modelling Checklist
+## Security Checklist
 
-- [ ] Train/test split performed **before** any statistics-based transformation (scaling, encoding).
-- [ ] No target leakage in preprocessing or feature engineering.
-- [ ] Recall is prominently reported and contextualized for churn prediction.
-- [ ] All standard metrics reported: Accuracy, Precision, Recall, F1, ROC-AUC, Confusion Matrix.
+- [ ] No API keys, tokens, or secrets committed to the repository.
+- [ ] `.env` files listed in `.gitignore`.
+- [ ] No prompt injection vectors introduced by untrusted input passed to LLMs.
+- [ ] External tool calls validated before execution.
 
 ## Documentation Quality
 
-- `README.md` must match actual implementation status.
-- `docs/01-repository-structure.md` is the single source of truth for layout.
-- Code comments explain the *why* (business or algorithmic reason), not just the *what*.
+- `README.md` must match actual implementation status and scope.
+- ADRs in `docs/adr/` document significant architectural decisions.
+- Each `src/` subfolder should include a `README.md` explaining its purpose.

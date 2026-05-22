@@ -1,40 +1,43 @@
 ---
-description: Primary directives for Customer Churn Prediction ML
-globs: *
+description: Primary directives for Practical AI Agents
+globs: "*"
 ---
+
 # Primary Directives
 
 ## Project Focus
 
-This is an **end-to-end Machine Learning project** for customer churn prediction that:
+This is a **personal learning and engineering workspace** for AI Agents and Agentic AI systems that:
 
-- Uses the IBM Telco Customer Churn Dataset (Kaggle)
-- Follows a structured ML workflow: EDA → Preprocessing → Feature Engineering → Modelling → Evaluation
-- Prioritizes business-oriented interpretation alongside technical metrics
-- Uses scikit-learn, pandas, numpy, matplotlib, seaborn, and Jupyter Notebooks
+- Covers AI Agents, Agentic AI, MCP, RAG, orchestration, multi-agent systems, and production-grade AI architectures.
+- Progresses from foundational experiments to production-engineered AI systems.
+- Uses Python, Jupyter Notebooks, and AI frameworks (LangChain, LangGraph, Semantic Kernel, AutoGen, CrewAI, OpenAI Agents SDK).
+- Prioritizes deep understanding, architecture thinking, and engineering discipline.
 
 ### Key Principles
 
-- **Recall first**: Minimizing false negatives (missed churners) is the primary evaluation priority.
-- **Reproducibility**: Fixed seeds, clean kernel runs, and documented outputs.
-- **Business context**: Every model metric should be explained in terms of customer retention impact.
+- **Architecture first**: Design agents and workflows with clear separation of concerns.
+- **Reproducibility**: Clean environments, documented dependencies, versioned configurations.
+- **Production mindset**: Observability, security, and governance built in — not bolted on.
 - **Modular code**: Reusable logic belongs in `src/`; exploration stays in `notebooks/`.
 
 ## Current State
 
-- Active project: M.Sc. DSAI Advanced Apex Project (Trimester 2)
-- Tech Stack: Python 3.12+, Jupyter, NumPy, Pandas, Matplotlib, Seaborn, scikit-learn
-- NOT a web application
-- NOT a production system
+- Active project: Swamy's personal AI Agents learning and engineering workspace.
+- Tech Stack: Python 3.12+, Jupyter, AI agent frameworks, vector databases, infrastructure tools.
+- NOT a web application.
+- NOT a production system.
+- NOT an academic submission.
 
 ## Documentation Accuracy
 
-- Notebooks must accurately reflect the analysis and findings.
-- `docs/01-repository-structure.md` is the single source of truth for the repo layout.
+- `README.md` is the single source of truth for project scope and structure.
 - Update `README.md` when project status or scope changes.
+- Keep `docs/` aligned with the actual state of implementations.
 
 ## Code Maintenance
 
-- Notebooks must be reproducible (`Restart Kernel & Run All` must pass).
-- Separate reusable logic into `src/` modules where appropriate.
-- Use strict typing in Python scripts (`src/`) but relax it in notebooks for exploration.
+- Notebooks are for exploration — keep them focused and clean.
+- Separate reusable logic into `src/` modules.
+- Use strict typing in Python scripts (`src/`) but relax it in notebooks for rapid experimentation.
+- Each `src/` subfolder should have a clear, single responsibility.

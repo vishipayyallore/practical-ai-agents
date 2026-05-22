@@ -1,4 +1,4 @@
-name: Python CI (Customer Churn Prediction ML)
+name: Python CI (Practical AI Agents)
 
 on:
   push:
@@ -24,23 +24,42 @@ jobs:
       run: |
         uv sync
     - name: Lint with isort (check only)
-      run: uv run isort --check-only --diff src/
+      run: |
+        if [ -d src ]; then
+          uv run isort --check-only --diff src/
+        else
+          echo "No src/ directory found, skipping isort check"
+        fi
     - name: Lint with black (check only)
-      run: uv run black --check --line-length 127 --target-version py312 src/
+      run: |
+        if [ -d src ]; then
+          uv run black --check --line-length 127 --target-version py312 src/
+        else
+          echo "No src/ directory found, skipping black check"
+        fi
     - name: Lint with flake8
       run: |
-        # stop the build if there are Python syntax errors or undefined names
-        uv run flake8 src/ --count --select=E9,F63,F7,F82 --show-source --statistics || true
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        uv run flake8 src/ --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics || true
+        if [ -d src ]; then
+          # stop the build if there are Python syntax errors or undefined names
+          uv run flake8 src/ --count --select=E9,F63,F7,F82 --show-source --statistics || true
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          uv run flake8 src/ --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics || true
+        else
+          echo "No src/ directory found, skipping flake8 check"
+        fi
     - name: Check notebook syntax (basic)
       run: |
         # Basic check: ensure notebooks can be parsed
         { uv run python << 'PYTHON_SCRIPT'
         import json
         import glob
-        for notebook in glob.glob('notebooks/**/*.ipynb', recursive=True):
-            with open(notebook, 'r', encoding='utf-8') as f:
-                json.load(f)
+        notebooks = glob.glob('notebooks/**/*.ipynb', recursive=True)
+        if notebooks:
+            for notebook in notebooks:
+                with open(notebook, 'r', encoding='utf-8') as f:
+                    json.load(f)
+            print(f"Parsed {len(notebooks)} notebook(s) successfully.")
+        else:
+            print("No notebooks found, skipping notebook JSON check.")
         PYTHON_SCRIPT
-        } || echo "No notebooks found or syntax error"
+        } || echo "Notebook syntax error detected"

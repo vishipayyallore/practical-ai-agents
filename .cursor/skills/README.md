@@ -1,10 +1,12 @@
 # Agent skills (canonical)
 
-This directory is the **source of truth** for bundled agent skills used with Cursor and GitHub Copilot (see `.github/copilot-instructions.md`).
+This directory is the **source of truth** for bundled agent skills used with Cursor and
+GitHub Copilot (see `.github/copilot-instructions.md`).
 
 ## Mirror
 
-`.cursor/skills/` must stay **identical** to `.github/skills/` (same paths, same `SKILL.md` and `README.md` bytes). After editing here, copy the updated tree to `.cursor/skills/`.
+`.cursor/skills/` must stay **identical** to `.github/skills/` (same paths, same `SKILL.md`
+and `README.md` bytes). After editing here, copy the updated tree to `.cursor/skills/`.
 
 ### Verify parity (PowerShell, repo root)
 
@@ -29,12 +31,13 @@ Get-ChildItem $cRoot -Recurse -Filter SKILL.md | ForEach-Object {
 ## Bundled skills
 
 | Folder | Purpose |
-|--------|---------|
-| `ml-algorithms-from-scratch` | Churn project context and workflow standards |
-| `topic-companions` | Notebook sequence and quality standards |
+|---|---|
+| `ai-agents-project` | Project context, frameworks, and implementation standards |
+| `ai-implementation-standards` | Module and notebook workflow quality checklist |
 | `ci-checks` | Local commands aligned with `.github/workflows/ci-*.yml` |
 | `docs-verification` | Markdown and documentation quality checks |
 | `workspace-review` | Full audit checklist for this project |
 | `e2e-testing` | Smoke checks (env, notebook parse, optional manual run) |
 
-**CI:** Pushes that touch skills run `.github/workflows/ci-skills-parity.yml`; agent docs changes also run `.github/workflows/ci-agent-docs-guard.yml`.
+**CI:** Pushes that touch skills run `.github/workflows/ci-skills-parity.yml`; agent docs
+changes also run `.github/workflows/ci-agent-docs-guard.yml`.
