@@ -1,0 +1,24 @@
+---
+description: This repo is Swamy's personal project only — not for others as courseware
+globs: "*"
+alwaysApply: true
+---
+
+# Swamy-only personal project
+
+This repository (`practical-ai-agents`) is **Swamy PKV's personal learning and engineering workspace**.
+
+1. **Only Swamy's work** — artifacts support his personal exploration of AI Agents, Agentic AI,
+   MCP, RAG, orchestration, and production-grade AI architectures; they are not institutional or
+   third-party curriculum.
+2. **Not for anyone else** — do not edit copy to welcome a general audience, imply shared
+   courseware, or invite others to treat this as tutorials or templates.
+
+## Do
+
+- Keep `README.md` accurate in spirit across public docs.
+
+## Do not
+
+- Soften or remove the personal-only stance unless Swamy explicitly requests it.
+- Replace "Swamy only" framing with "students," "learners," or open-education language.

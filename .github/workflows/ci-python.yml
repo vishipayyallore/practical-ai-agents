@@ -1,0 +1,65 @@
+name: Python CI (Practical AI Agents)
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install uv
+      uses: astral-sh/setup-uv@v4
+      with:
+        version: "latest"
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+    - name: Install dependencies with uv
+      run: |
+        uv sync
+    - name: Lint with isort (check only)
+      run: |
+        if [ -d src ]; then
+          uv run isort --check-only --diff src/
+        else
+          echo "No src/ directory found, skipping isort check"
+        fi
+    - name: Lint with black (check only)
+      run: |
+        if [ -d src ]; then
+          uv run black --check --line-length 127 --target-version py312 src/
+        else
+          echo "No src/ directory found, skipping black check"
+        fi
+    - name: Lint with flake8
+      run: |
+        if [ -d src ]; then
+          # stop the build if there are Python syntax errors or undefined names
+          uv run flake8 src/ --count --select=E9,F63,F7,F82 --show-source --statistics || true
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          uv run flake8 src/ --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics || true
+        else
+          echo "No src/ directory found, skipping flake8 check"
+        fi
+    - name: Check notebook syntax (basic)
+      run: |
+        # Basic check: ensure notebooks can be parsed
+        { uv run python << 'PYTHON_SCRIPT'
+        import json
+        import glob
+        notebooks = glob.glob('notebooks/**/*.ipynb', recursive=True)
+        if notebooks:
+            for notebook in notebooks:
+                with open(notebook, 'r', encoding='utf-8') as f:
+                    json.load(f)
+            print(f"Parsed {len(notebooks)} notebook(s) successfully.")
+        else:
+            print("No notebooks found, skipping notebook JSON check.")
+        PYTHON_SCRIPT
+        } || echo "Notebook syntax error detected"

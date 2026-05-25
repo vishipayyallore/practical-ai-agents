@@ -1,0 +1,43 @@
+---
+description: Primary directives for Practical AI Agents
+globs: "*"
+---
+
+# Primary Directives
+
+## Project Focus
+
+This is a **personal learning and engineering workspace** for AI Agents and Agentic AI systems that:
+
+- Covers AI Agents, Agentic AI, MCP, RAG, orchestration, multi-agent systems, and production-grade AI architectures.
+- Progresses from foundational experiments to production-engineered AI systems.
+- Uses Python, Jupyter Notebooks, and AI frameworks (LangChain, LangGraph, Semantic Kernel, AutoGen, CrewAI, OpenAI Agents SDK).
+- Prioritizes deep understanding, architecture thinking, and engineering discipline.
+
+### Key Principles
+
+- **Architecture first**: Design agents and workflows with clear separation of concerns.
+- **Reproducibility**: Clean environments, documented dependencies, versioned configurations.
+- **Production mindset**: Observability, security, and governance built in — not bolted on.
+- **Modular code**: Reusable logic belongs in `src/`; exploration stays in `notebooks/`.
+
+## Current State
+
+- Active project: Swamy's personal AI Agents learning and engineering workspace.
+- Tech Stack: Python 3.12+, Jupyter, AI agent frameworks, vector databases, infrastructure tools.
+- NOT a web application.
+- NOT a production system.
+- NOT an academic submission.
+
+## Documentation Accuracy
+
+- `README.md` is the single source of truth for project scope and structure.
+- Update `README.md` when project status or scope changes.
+- Keep `docs/` aligned with the actual state of implementations.
+
+## Code Maintenance
+
+- Notebooks are for exploration — keep them focused and clean.
+- Separate reusable logic into `src/` modules.
+- Use strict typing in Python scripts (`src/`) but relax it in notebooks for rapid experimentation.
+- Each `src/` subfolder should have a clear, single responsibility.

@@ -1,0 +1,47 @@
+---
+description: Quality assurance standards for code and notebooks in Practical AI Agents
+globs: "*.py, *.ipynb"
+---
+
+# Quality Assurance
+
+## Code Quality Checklist
+
+### Python Modules (`src/`)
+
+- [ ] Follows PEP 8 style guide.
+- [ ] Type hints used for all public function arguments and return types.
+- [ ] Docstrings included for all public functions, classes, and modules.
+- [ ] No hardcoded paths (use `pathlib` or relative paths).
+- [ ] No hardcoded API keys or secrets (use environment variables or `.env`).
+- [ ] Meaningful variable names (`agent_config` not `ac`).
+- [ ] Comments explain the *why* of architectural decisions, not just the *what*.
+
+### Jupyter Notebooks (`notebooks/`)
+
+- [ ] Focused on a single concept or workflow.
+- [ ] Markdown cell before each major code section explaining its purpose.
+- [ ] No duplicated logic from `src/` — import modules instead.
+- [ ] Clear and descriptive cell outputs.
+- [ ] Prefer `Kernel → Restart & Run All` clean runs.
+
+## Agent Implementation Checklist
+
+- [ ] Tool functions have accurate, descriptive names and docstrings.
+- [ ] Agent definition, tool registration, and execution are separated.
+- [ ] Error handling covers LLM timeouts, tool failures, and unexpected outputs.
+- [ ] API keys and credentials loaded from environment variables.
+- [ ] Agent actions logged for observability.
+
+## Security Checklist
+
+- [ ] No API keys, tokens, or secrets committed to the repository.
+- [ ] `.env` files listed in `.gitignore`.
+- [ ] No prompt injection vectors introduced by untrusted input passed to LLMs.
+- [ ] External tool calls validated before execution.
+
+## Documentation Quality
+
+- `README.md` must match actual implementation status and scope.
+- ADRs in `docs/adr/` document significant architectural decisions.
+- Each `src/` subfolder should include a `README.md` explaining its purpose.

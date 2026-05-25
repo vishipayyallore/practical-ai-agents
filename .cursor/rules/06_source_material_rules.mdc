@@ -1,0 +1,43 @@
+---
+description: Rules for reference materials — read-only policy for references/
+globs: "references/**"
+---
+
+# Reference Materials Governance
+
+**Folder**: `references/`
+**Status**: Read-Only — Do Not Modify
+
+## Policy
+
+The `references/` directory contains external learning materials: books, papers, articles,
+video notes, and curated external resources. These are **reference inputs**, not project outputs.
+
+### Read-Only Policy
+
+- **NEVER modify** any file inside `references/`
+- **NEVER delete** reference materials once added
+- Reference materials are the **permanent knowledge base** for this project
+
+### Adding New References
+
+- Add reference files to `references/` as a distinct, intentional step
+- Use descriptive filenames: `attention-is-all-you-need.pdf`, `langchain-docs-snapshot.md`
+- Document the source and date in a companion `README.md` inside `references/`
+
+## Data Lifecycle
+
+```text
+references/         ← external learning materials (read-only)
+    ↓ (read-only)
+notebooks/          ← exploration and experimentation (reads from references)
+    ↓
+src/                ← reusable implementation logic
+    ↓
+docs/learnings/     ← documented learnings and insights
+```
+
+## Enforcement
+
+- AI assistants must refuse requests to modify or delete `references/` files.
+- Treat `references/` as an append-only archive.

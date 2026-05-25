@@ -1,0 +1,25 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run CI Checks",
+			"type": "shell",
+			"command": "uv run isort --check-only --diff src/ && uv run black --check --line-length 127 --target-version py312 src/ && uv run flake8 src/ --count --select=E9,F63,F7,F82 --show-source --statistics"
+		},
+		{
+			"label": "Run Markdown Lint",
+			"type": "shell",
+			"command": "npx --yes markdownlint-cli2 \"README.md\" \"docs/**/*.md\""
+		},
+		{
+			"label": "Parse Notebooks",
+			"type": "shell",
+			"command": "uv run python -c \"import json,glob; paths=sorted(glob.glob('notebooks/**/*.ipynb',recursive=True)); [json.load(open(p,encoding='utf-8')) for p in paths]; print('All notebooks OK' if paths else 'No notebooks found')\""
+		},
+		{
+			"label": "Run All CI Checks",
+			"type": "shell",
+			"command": "uv run isort --check-only --diff src/ && uv run black --check --line-length 127 --target-version py312 src/ && uv run flake8 src/ --count --select=E9,F63,F7,F82 --show-source --statistics && uv run python -c \"import json,glob; [json.load(open(p,encoding='utf-8')) for p in glob.glob('notebooks/**/*.ipynb',recursive=True)]\" && npx --yes markdownlint-cli2 \"README.md\" \"docs/**/*.md\""
+		}
+	]
+}

@@ -1,0 +1,58 @@
+---
+description: Rules for code and notebook quality standards in Practical AI Agents
+globs: "*.md, *.ipynb, *.py"
+---
+
+# Code and Notebook Quality Rules
+
+**Context**: Personal learning and engineering workspace for AI Agents and Agentic AI systems.
+**Priority**: HIGH
+
+## Core principles
+
+### Code clarity
+
+- **Concept first**: Add a markdown cell (in notebooks) or docstring (in modules) explaining the
+  purpose of each major section before the code.
+- **Single responsibility**: Each module or notebook should focus on one concept or workflow.
+- **Reproducibility**: Pin dependency versions; document setup steps; use environment variables for
+  credentials.
+- **No hidden state**: A clean environment from scratch should produce the same results.
+
+### Agent implementation quality
+
+- **Tool definitions**: Tool functions must have clear, accurate descriptions — agents use these for routing.
+- **Separation of concerns**: Agent definition, tool registration, and execution loop are separate.
+- **Error handling**: Handle LLM timeouts, tool failures, and unexpected model outputs explicitly.
+- **Observability**: Log agent actions, tool calls, and LLM responses for debugging and evaluation.
+
+### Framework usage
+
+- **Idiomatic patterns**: Use framework-native patterns rather than generic Python wrappers.
+- **Justification**: Document why a specific framework or approach was chosen.
+- **Minimal examples**: Start minimal and composable before adding complexity.
+
+## Code in modules (`src/`)
+
+- **Comments**: Explain the *why* of architectural or algorithmic decisions.
+- **Variable names**: Use descriptive names (`agent_config`, `tool_registry`, `memory_store`).
+- **Type hints**: Required for all public functions and class methods in `src/`.
+- **Docstrings**: Required for all public functions, classes, and modules in `src/`.
+
+## Notebooks (`notebooks/`)
+
+- Markdown cell explaining the purpose before each major code section.
+- Prefer `Kernel → Restart & Run All` clean runs for shared notebooks.
+- Reference `src/` modules for reusable logic rather than duplicating code.
+- Clear, descriptive cell outputs.
+
+## Voice and tone
+
+- First-person learning journal in notebooks: "I observed…", "I chose…", "This pattern works well for…"
+- Avoid generic boilerplate. Relate findings to architecture decisions and design trade-offs.
+
+## Markdown standards in notebooks
+
+- Use H2 (`##`) for major sections and H3 (`###`) for subsections.
+- Use blockquotes (`>`) for key findings, observations, or important callouts.
+- Use tables for framework comparisons, metric summaries, and structured data.

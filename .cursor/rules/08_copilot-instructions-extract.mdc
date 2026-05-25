@@ -1,0 +1,67 @@
+---
+description: Key guidelines extracted from copilot-instructions.md for AI assistants
+globs: "*"
+---
+
+# Copilot Instructions Extract
+
+**Source**: `.github/copilot-instructions.md`
+**Purpose**: Key guidelines for AI assistants working on this repository
+
+---
+
+## Repository Context
+
+**Practical AI Agents** is Swamy PKV's personal learning and engineering workspace for AI Agents,
+Agentic AI, MCP, RAG, orchestration, multi-agent systems, and production-grade AI architectures.
+
+### Project Scope
+
+- **Focus**: AI Agents, Agentic AI, MCP, RAG, orchestration, multi-agent systems, production AI.
+- **Frameworks**: LangChain, LangGraph, Semantic Kernel, AutoGen, CrewAI, OpenAI Agents SDK.
+- **Stack**: Python 3.12+, Jupyter, AI agent frameworks, vector databases, infrastructure tools.
+
+### Repository Layout
+
+```text
+src/                → reusable Python modules (by domain)
+notebooks/          → exploration and learning notebooks
+docs/               → documentation (ADRs, diagrams, learnings)
+tests/              → test suites
+scripts/            → utility scripts
+references/         → read-only learning materials
+```
+
+---
+
+## Development Guidelines
+
+### Code Standards
+
+- PEP 8; type hints and docstrings in `src/`; no hardcoded paths or secrets.
+- Comment the *why* of architectural and design decisions.
+- Agent tool functions need accurate descriptions for LLM routing.
+
+### Security
+
+- No credentials committed — use environment variables.
+- Validate inputs before passing to LLMs or external tools.
+
+### Notebook Quality
+
+- Markdown concept cell before each major section.
+- Prefer clean `Kernel → Restart & Run All` runs.
+- Reference `src/` modules; do not duplicate logic in notebooks.
+
+---
+
+## Quality Checklist
+
+### Before Committing Code/Notebooks
+
+- [ ] No hardcoded API keys or secrets.
+- [ ] Type hints and docstrings in `src/` modules.
+- [ ] No hardcoded paths (`pathlib` or relative paths).
+- [ ] Code comments explain *why* (not just *what*).
+- [ ] `references/` is unchanged.
+- [ ] Markdown lints cleanly.

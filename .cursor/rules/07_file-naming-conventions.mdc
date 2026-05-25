@@ -1,0 +1,42 @@
+---
+description: Naming conventions for modules, notebooks, scripts, and docs
+globs: "*"
+---
+
+# File Naming Conventions
+
+## Python Modules (`src/`)
+
+- Use snake_case (standard Python convention).
+- Name by responsibility and domain: `react_agent.py`, `mcp_client.py`, `chroma_store.py`.
+- Subfolder names use kebab-case: `single-agent/`, `multi-agent/`, `tool-calling/`.
+- Package `__init__.py` files should be minimal or empty.
+
+## Jupyter Notebooks (`notebooks/`)
+
+- Use descriptive kebab-case or snake_case names.
+- Prefix with a topic area when organizing by theme:
+
+```text
+mcp_quickstart.ipynb
+langgraph_state_machine.ipynb
+rag_with_chroma.ipynb
+react_pattern_demo.ipynb
+```
+
+- No strict numeric sequence required — use meaningful names.
+
+## Scripts (`scripts/`)
+
+- Use snake_case: `sync_env.py`, `run_smoke_test.sh`.
+
+## Documentation (`docs/`)
+
+- Use kebab-case filenames: `agent-patterns.md`, `01-repository-structure.md`.
+- ADRs use prefix `adr-NNN-short-title.md`: `adr-001-langgraph.md`.
+- No uppercase in filenames.
+
+## Tests (`tests/`)
+
+- Mirror the `src/` structure: `tests/agents/test_react_agent.py`.
+- Test files prefixed with `test_`: `test_mcp_client.py`.

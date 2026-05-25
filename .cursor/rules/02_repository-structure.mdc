@@ -1,0 +1,30 @@
+---
+description: Repository structure for Practical AI Agents
+globs: "*"
+---
+
+# Repository Structure
+
+**Project**: Practical AI Agents — Swamy PKV's personal learning and engineering workspace
+
+> **Single Source of Truth**: For the complete and detailed repository structure, refer to `README.md`.
+
+## Quick Summary
+
+- **`src/fundamentals/`**: Prompts, embeddings, RAG, vector stores, tool usage basics.
+- **`src/agents/`**: Single-agent, multi-agent, ReAct, planner-executor, reflection, memory.
+- **`src/frameworks/`**: Implementations using LangChain, LangGraph, Semantic Kernel, AutoGen, CrewAI, OpenAI Agents SDK.
+- **`src/protocols/`**: MCP, A2A, and function-calling integrations.
+- **`src/orchestration/`**: Workflows, state machines, event-driven, durable execution.
+- **`src/observability/`**: Tracing, evaluations, telemetry, prompt testing.
+- **`src/security/`**: Prompt injection defense, guardrails, sandboxing, secrets management.
+- **`src/architecture/`**: Patterns, anti-patterns, scalability, distributed agents.
+- **`src/projects/`**: Complete end-to-end agent projects.
+- **`notebooks/`**: Jupyter notebooks for exploration and learning.
+- **`docs/`**: Project documentation (ADRs, diagrams, learnings, references).
+- **`tests/`**: Test suites.
+- **`scripts/`**: Utility scripts.
+- **`references/`**: Read-only learning materials (never modify).
+
+When writing or updating public-facing structure (e.g., `README.md`), do not list internal-only
+paths or expose credential or configuration details.
